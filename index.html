@@ -53,13 +53,13 @@
 								<li>
 									<b>Old</b>: Rational Rose</li>
 								<li>
-									<b>Old</b>: UML Stereotyped UML language (No spec) (> 15 years)</li>
+									<b>Old</b>: UML Stereotyped language (without specs) (> 15 years)</li>
 								<li>
-									<b>Big</b>: 1.5M semantic elements</li>
+									<b>Big</b>: ~1.5M semantic elements</li>
 								<li>
-									<b>Complex</b>: Split on 1700 ressources with cycle references</li>
+									<b>Complex</b>: Split in to 1700 ressources with cyclic references</li>
 								<li>
-									<b>Complex</b>: Business rules for validation et reference scopes </li>
+									<b>Complex</b>: Business rules for validation and reference scopes</li>
 							</ul>
 						</small>
 
@@ -67,17 +67,17 @@
 				</section>
 				<section>
 					<div>
-						<p>Lesson learned we need tests!!</p>
+						<p>Lesson learned: WE NEED TESTS!!</p>
 						<small>
 							<ul>
 								<li>
-									<b>Need efficiency</b>: We are going to write a lot of tests</li>
+									<b>Need efficiency</b>: We are going to write a lot of tests (thousands)</li>
 								<li>
-									<b>Needs flexibility</b>: MM constantly evolving</li>
+									<b>Need flexibility</b>: Metamodel constantly evolving</li>
 								<li>
-									<b>Needs readability</b>: We need to maintains them in long term</li>
+									<b>Need readability</b>: We need to maintain them in the long term</li>
 								<li>
-									<b>Needs fun</b>: Needs to use fun tech to maintain interest in the team</li>
+									<b>Need fun</b>: Team needs to use fun tech to maintain interest in the project</li>
 							</ul>
 						</small>
 					</div>
@@ -99,15 +99,15 @@
 								<li>
 									<b>Simple EMF model builder</b>
 									<ul>
-										<li>Fast to write & Easy to read</li>
-										<li>Compiling: Fail fast</li>
+										<li>Fast to write & easy to read</li>
+										<li>Compiling => Fail fast</li>
 										<li>Maintainable</li>
 									</ul>
 								</li>
+								<li>Used in industrial project</li>
 								<li>Flat learning curve</li>
 								<li>
-									Lightweight (
-									< 500 lines of code)</li>
+									Lightweight (< 500 lines of code)</li>
 										<li>
 											Inspired by:
 											<a href="https://www.eclipsecon.org/france2016/session/xtend-api-and-dsl-design-patterns">EclipseCon France 2016 talk by Max Bureck</a>
@@ -127,7 +127,7 @@
 						<i>fr.ibp.odv.boem.lib</i>
 					</p>
 					<p>
-						<small> Extra required dependencies
+						<small> Extra required dependencies (XTend)
 							<ul>
 								<li>
 									<i>com.google.guava</i>
@@ -141,9 +141,6 @@
 								<li>
 									<i>org.eclipse.xtend.lib.macro</i>
 								</li>
-								<li>
-									<i>fr.ibp.odv.boem.lib</i>
-								</li>
 							</ul>
 						</small>
 					</p>
@@ -151,7 +148,7 @@
 				<section>
 					<p>
 						Create a XTend class with a Boem factory
-						<pre><code data-trim data-noescape>
+						<pre style="width: 100%"><code data-trim data-noescape>
 											extension BoemFactory factory = new BoemFactory(YourMM.eINSTANCE)
 												</code></pre>
 					</p>
@@ -164,7 +161,7 @@
 
 				</section>
 				<section>
-					You are good to go!
+					You are ready to go!
 				</section>
 			</section>
 
@@ -179,7 +176,7 @@
 					</p>
 				</section>
 				<section>
-					<p>How to build trees & resources</p>
+					<p>How to create trees & resources</p>
 					<p>
 						<i>
 							<a href="https://github.com/i-BP/boem/blob/master/tests/fr.ibp.odv.boem.tests/src/fr/ibp/odv/boem/tests/uml/UMLBuildTreeTest.xtend#LC33">fr.ibp.odv.boem.tests.uml.UmlBuildTreeTest</a>
@@ -223,7 +220,7 @@
 				</section>
 				<section>
 					<h3>Settings references</h3>
-					<p>How to use implicite ids</p>
+					<p>Defining an implicit id provider</p>
 					<p>
 						<pre style="width: 100%"><code data-trim data-noescape>
 extension BoemFactory factory = new BoemFactory(UMLPackage.eINSTANCE) //
@@ -238,7 +235,7 @@ extension BoemFactory factory = new BoemFactory(UMLPackage.eINSTANCE) //
 				</section>
 				<section>
 					<h3>Settings references</h3>
-					<p>How to use implicite ids</p>
+					<p>How to use implicit ids</p>
 					<p>
 						<i>
 							<a href="https://github.com/i-BP/boem/blob/master/tests/fr.ibp.odv.boem.tests/src/fr/ibp/odv/boem/tests/uml/UMLImplicitIds.xtend#LC28">fr.ibp.odv.boem.tests.uml.UMLImplicitIds</a>
