@@ -1,0 +1,323 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Boem</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
+	<link rel="stylesheet" href="css/custom.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div id="hidden" style="display:none;">
+		<div id="header">
+			<div id="header-right">
+				<img src="img/logos.png" alt="">
+			</div>
+		</div>
+	</div>
+
+	<div class="reveal">
+		<div class="slides">
+			<section>
+
+				<h1>EMF + Xtend = BOEM</h1>
+				<h2>
+					<i>Builder Of EMF Models</i>
+				</h2>
+			</section>
+			<section>
+				<h2>Why Boem</h2>
+
+				<section>
+					<div>
+						<p>Migration project</p>
+						<small>
+							<ul>
+								<li>
+									<b>Old</b>: Rational Rose</li>
+								<li>
+									<b>Old</b>: UML Stereotyped UML language (No spec) (> 15 years)</li>
+								<li>
+									<b>Big</b>: 1.5M semantic elements</li>
+								<li>
+									<b>Complex</b>: Split on 1700 ressources with cycle references</li>
+								<li>
+									<b>Complex</b>: Business rules for validation et reference scopes </li>
+							</ul>
+						</small>
+
+					</div>
+				</section>
+				<section>
+					<div>
+						<p>Lesson learned we need tests!!</p>
+						<small>
+							<ul>
+								<li>
+									<b>Need efficiency</b>: We are going to write a lot of tests</li>
+								<li>
+									<b>Needs flexibility</b>: MM constantly evolving</li>
+								<li>
+									<b>Needs readability</b>: We need to maintains them in long term</li>
+								<li>
+									<b>Needs fun</b>: Needs to use fun tech to maintain interest in the team</li>
+							</ul>
+						</small>
+					</div>
+				</section>
+			</section>
+			<section>
+				<h2>What is Boem</h2>
+				<section>
+					<div>
+						<small>
+							<ul>
+								<li>
+									<b>Xtend language</b>
+									<ul>
+										<li>Easy to read</li>
+										<li>Compliant with java</li>
+									</ul>
+								</li>
+								<li>
+									<b>Simple EMF model builder</b>
+									<ul>
+										<li>Fast to write & Easy to read</li>
+										<li>Compiling: Fail fast</li>
+										<li>Maintainable</li>
+									</ul>
+								</li>
+								<li>Flat learning curve</li>
+								<li>
+									Lightweight (
+									< 500 lines of code)</li>
+										<li>
+											Inspired by:
+											<a href="https://www.eclipsecon.org/france2016/session/xtend-api-and-dsl-design-patterns">EclipseCon France 2016 talk by Max Bureck</a>
+										</li>
+							</ul>
+						</small>
+					</div>
+				</section>
+			</section>
+			<section>
+				<h2>Set up</h2>
+				<section>
+					<p>Download and install from
+						<a href="https://github.com/i-BP/boem">here</a>
+					</p>
+					<p>Add a dependency to
+						<i>fr.ibp.odv.boem.lib</i>
+					</p>
+					<p>
+						<small> Extra required dependencies
+							<ul>
+								<li>
+									<i>com.google.guava</i>
+								</li>
+								<li>
+									<i>org.eclipse.xtext.xbase.lib</i>
+								</li>
+								<li>
+									<i>org.eclipse.xtend.lib</i>
+								</li>
+								<li>
+									<i>org.eclipse.xtend.lib.macro</i>
+								</li>
+								<li>
+									<i>fr.ibp.odv.boem.lib</i>
+								</li>
+							</ul>
+						</small>
+					</p>
+				</section>
+				<section>
+					<p>
+						Create a XTend class with a Boem factory
+						<pre><code data-trim data-noescape>
+											extension BoemFactory factory = new BoemFactory(YourMM.eINSTANCE)
+												</code></pre>
+					</p>
+				</section>
+				<section>
+					Import helpers
+					<pre><code data-trim data-noescape>
+									import static extension fr.ibp.odv.boem.lib.Boems.*
+										</code></pre>
+
+				</section>
+				<section>
+					You are good to go!
+				</section>
+			</section>
+
+			<section>
+				<h2>Concepts</h2>
+				<section>
+					<p>How to create objects</p>
+					<p>
+						<i>
+							<a href="https://github.com/i-BP/boem/blob/master/tests/fr.ibp.odv.boem.tests/src/fr/ibp/odv/boem/tests/uml/UMLCreateObject.xtend#LC24">fr.ibp.odv.boem.tests.uml.UmlCreateObject</a>
+						</i>
+					</p>
+				</section>
+				<section>
+					<p>How to build trees & resources</p>
+					<p>
+						<i>
+							<a href="https://github.com/i-BP/boem/blob/master/tests/fr.ibp.odv.boem.tests/src/fr/ibp/odv/boem/tests/uml/UMLBuildTreeTest.xtend#LC33">fr.ibp.odv.boem.tests.uml.UmlBuildTreeTest</a>
+						</i>
+					</p>
+				</section>
+				<section>
+					<p>How to access object</p>
+					<p>
+						<i>
+							<a href="https://github.com/i-BP/boem/blob/master/tests/fr.ibp.odv.boem.tests/src/fr/ibp/odv/boem/tests/uml/UMLObjectAccessTest.xtend#LC31">fr.ibp.odv.boem.tests.uml.UmlObjectAccessTest</a>
+						</i>
+					</p>
+				</section>
+				<section>
+					<h3>Settings references</h3>
+					<p>How to add multiple objects</p>
+					<p>
+						<i>
+							<a href="https://github.com/i-BP/boem/blob/master/tests/fr.ibp.odv.boem.tests/src/fr/ibp/odv/boem/tests/uml/UMLSettingReferences.xtend#LC33">fr.ibp.odv.boem.tests.uml.UmlSettingReferences.testMultipleAdd()</a>
+						</i>
+					</p>
+				</section>
+				<section>
+					<h3>Settings references</h3>
+					<p>How to set single reference</p>
+					<p>
+						<i>
+							<a href="https://github.com/i-BP/boem/blob/master/tests/fr.ibp.odv.boem.tests/src/fr/ibp/odv/boem/tests/uml/UMLSettingReferences.xtend#LC52">fr.ibp.odv.boem.tests.uml.UmlSettingReferences.testSingleSet()</a>
+						</i>
+					</p>
+				</section>
+				<section>
+					<h3>Settings references</h3>
+					<p>How to use ids</p>
+					<p>
+						<i>
+							<a href="https://github.com/i-BP/boem/blob/master/tests/fr.ibp.odv.boem.tests/src/fr/ibp/odv/boem/tests/uml/UMLSettingReferences.xtend#LC68">fr.ibp.odv.boem.tests.uml.UmlSettingReferences.testUsingIds()</a>
+						</i>
+					</p>
+				</section>
+				<section>
+					<h3>Settings references</h3>
+					<p>How to use implicite ids</p>
+					<p>
+						<pre style="width: 100%"><code data-trim data-noescape>
+extension BoemFactory factory = new BoemFactory(UMLPackage.eINSTANCE) //
+.registerIdProvider([
+	if (it instanceof NamedElement) {
+		return it.name
+	}
+	return null
+])
+																			</code></pre>
+					</p>
+				</section>
+				<section>
+					<h3>Settings references</h3>
+					<p>How to use implicite ids</p>
+					<p>
+						<i>
+							<a href="https://github.com/i-BP/boem/blob/master/tests/fr.ibp.odv.boem.tests/src/fr/ibp/odv/boem/tests/uml/UMLImplicitIds.xtend#LC28">fr.ibp.odv.boem.tests.uml.UMLImplicitIds</a>
+						</i>
+					</p>
+				</section>
+				<section>
+					<h3>How to update a model</h3>
+					<p>
+						<i>
+							<a href="https://github.com/i-BP/boem/blob/master/tests/fr.ibp.odv.boem.tests/src/fr/ibp/odv/boem/tests/uml/UMLUpdate.xtend#LC31">fr.ibp.odv.boem.tests.uml.UmlUpdate</a>
+						</i>
+					</p>
+				</section>
+			</section>
+			<section>
+				<h2>Demo</h2>
+				<section>
+					<img src="img/umlModelTreeDemo.png" alt="">
+				</section>
+				<section>
+					<img style="width: 100%" src="img/umlModelTreeDemoResult.png" alt="">
+				</section>
+			</section>
+
+			<section>
+
+				<h2>What's next</h2>
+				<ul>
+					<li>Boem serialization from existing models</li>
+					<li>Improving Xtend editor
+						<ul>
+							<li>Enum completion</li>
+							<li>Code folding lambda</li>
+						</ul>
+					</li>
+					<li>Sirius Boem integration: Sessions and Representations</li>
+					<li>Any uncovered requirement? Ask or contribute on Github</li>
+				</ul>
+
+			</section>
+			<section>
+				<p>Thanks for you attention. Any question?</p>
+				<img style="width: 100%" src="img/2018 EC France Leave Feedback Slide.png" alt="">
+			</section>
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+			],
+			history: true
+		});
+	</script>
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script type="text/javascript">
+		// 3. On Reveal.js ready event, copy header/footer <div> into each `.slide-background` <div>
+		var header = $('#header').html();
+		if (window.location.search.match(/print-pdf/gi)) {
+			Reveal.addEventListener('ready', function (event) {
+				$('.slide-background').append(header);
+			});
+		}
+		else {
+			$('div.reveal').append(header);
+		}
+	</script>
+</body>
+
+</html>
