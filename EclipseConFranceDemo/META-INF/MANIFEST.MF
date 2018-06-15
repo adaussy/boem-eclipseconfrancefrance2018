@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: EclipseConFranceDemo
+Bundle-SymbolicName: EclipseConFranceDemo
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: EclipseConFranceDemo
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro,
+ fr.ibp.odv.boem.lib,
+ org.junit,
+ org.eclipse.uml2.uml
+
